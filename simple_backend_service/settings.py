@@ -47,7 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
 ]
 
@@ -106,12 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-CORS_ALLOW_ALL_ORIGINS: True
-
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-]
-
+CORS_ORIGIN_WHITELIST = 'localhost:3000'
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
