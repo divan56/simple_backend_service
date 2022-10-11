@@ -1,5 +1,7 @@
 from rest_framework import mixins, generics
 from django.contrib.auth.models import User
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
+
 from .models import Student
 from .serializers import StudentSerializer
 from rest_framework import permissions
@@ -8,6 +10,7 @@ from rest_framework import permissions
 class StudentListOrCreateOne(mixins.ListModelMixin,
                              mixins.CreateModelMixin,
                              generics.GenericAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
